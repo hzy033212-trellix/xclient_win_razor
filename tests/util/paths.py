@@ -29,8 +29,7 @@ with open(_PATHS_FILE, "r") as _f:
 
 def _path(key):
     # An environment variable RAZOR_<KEY> (e.g. RAZOR_INSTALL_DIR) overrides the
-    # paths.json value -- CI uses it to keep install_dir outside the runner
-    # workspace, which actions/checkout cleans on every run.
+    # paths.json value.
     value = os.environ.get("RAZOR_" + key.upper()) or _PATHS[key]
     path = Path(os.path.expanduser(os.path.expandvars(value)))
     return path if path.is_absolute() else (_REPO_ROOT / path).resolve()

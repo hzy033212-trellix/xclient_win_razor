@@ -91,7 +91,7 @@ SECRET_SETTING = re.compile(r"(/pem|/cert|/key|password|secret|token)$", re.IGNO
 def pytest_runtest_makereport(item, call):
     """When a test fails: save XClient's config (``xclient -x``, keys redacted) and
     its test group into the test's results folder, next to its audit script and
-    outputs, so a failed CI run's artifact has all three (tools/ci/collect_failed.py)."""
+    outputs."""
     outcome = yield
     report = outcome.get_result()
     if not report.failed or report.when == "teardown":

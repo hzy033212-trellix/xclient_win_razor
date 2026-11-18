@@ -170,27 +170,3 @@ To compare two runs (e.g. `-WithMA` against the fake-MA msi):
 ```cmd
 venv\Scripts\python compare_results.py logs\<run A> logs\<run B> --out comparison.md
 ```
-
-## 7. (Optional) Run it in GitHub Actions
-
-1. Push the repo to a GitHub repository.
-2. On the test host, in an Administrator prompt with the variables from step 2 set, run:
-
-   ```cmd
-   powershell -ExecutionPolicy Bypass -File setup_runner.ps1 -Token <token from Settings > Actions > Runners > New self-hosted runner>
-   ```
-
-   This registers a self-hosted runner labelled `new-win-razor` that runs as a service.
-3. Add these repository secrets (Settings > Secrets and variables > Actions):
-   - `ARTIFACTORY_USER`
-   - `ARTIFACTORY_TOKEN`
-   - `XCLIENT_GITHUB_TOKEN`
-   - `MA_SDK_FAKE_REPO`
-   - optionally `MA_SDK_FAKE_BRANCH`
-4. You can also set these optional repository variables:
-   - `XCLIENT_RELEASE` (default `50.4.0`)
-   - `PUSH_TESTS_ENABLED=false`
-   - `NIGHTLY_ENABLED=false`
-   - `AUTO_REBOOT=false`
-5. The workflow `.github/workflows/tests.yml` runs on pushes and pull requests to `main`, nightly,
-   and on demand from Actions > XClient tests > Run workflow.
