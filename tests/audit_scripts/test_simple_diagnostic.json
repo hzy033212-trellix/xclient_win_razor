@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "name": "diagnostic",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "format",
+                    "value": "simple"
+                }
+            ]
+        }
+    ]
+}

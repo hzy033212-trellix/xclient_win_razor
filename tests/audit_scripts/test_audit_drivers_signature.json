@@ -1,0 +1,44 @@
+{
+    "commands": [
+        {
+            "name": "drivers-signature",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "enumerate imports",
+                    "value": true
+                },
+                {
+                    "name": "enumerate exports",
+                    "value": true
+                },
+                {
+                    "name": "MD5",
+                    "value": true
+                },
+                {
+                    "name": "SHA1",
+                    "value": true
+                },
+                {
+                    "name": "SHA256",
+                    "value": true
+                },
+                {
+                    "name": "Verify Digital Signatures",
+                    "value": true
+                },
+                {
+                    "name": "strings",
+                    "value": true
+                },
+                {
+                    "name": "shortest matched string",
+                    "value": "10"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "commands": [
+        {
+            "name": "processes-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "process name",
+                    "value": "CreateH.exe"
+                },
+                {
+                    "name": "handles",
+                    "value": true
+                },
+                {
+                    "name": "sections",
+                    "value": true
+                }
+            ]
+        }
+    ]
+}

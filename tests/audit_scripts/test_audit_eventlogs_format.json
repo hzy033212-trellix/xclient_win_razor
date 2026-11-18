@@ -1,0 +1,20 @@
+{
+    "commands": [
+        {
+            "name": "eventlogs",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "eventlog",
+                    "value": "Security.evtx"
+                },
+                {
+                    "name": "eventlogfullpath",
+                    "value": "%SystemRoot%\\System32\\Winevt\\Logs\\Security.evtx"
+                }
+            ]
+        }
+    ]
+}

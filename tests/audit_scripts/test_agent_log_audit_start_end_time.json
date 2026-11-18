@@ -1,0 +1,20 @@
+{
+    "commands": [
+        {
+            "name": "log-audit",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "start-time",
+                    "value": "2026-10-10T04:57:57+00:00"
+                },
+                {
+                    "name": "end-time",
+                    "value": "2026-10-10T05:02:57+00:00"
+                }
+            ]
+        }
+    ]
+}

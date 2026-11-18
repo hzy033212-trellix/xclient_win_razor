@@ -1,0 +1,10 @@
+{
+    "commands": [
+        {
+            "name": "drivers-modulelist",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0"
+        }
+    ]
+}

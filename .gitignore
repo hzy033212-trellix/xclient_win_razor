@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Downloaded tools and hxsim (excluded from repo), except the two key-less policy
+# templates. `install/*` rather than `install/`: files can't be re-included from
+# an ignored directory. Never commit keys into these two (mxs/ca/pem,
+# mxs/provo/cert, mxs/provo/key stay empty; the HXSim setup fills in its own copy).
+install/*
+!install/xc_Eventor+UnifiedEdr_only.xml
+!install/ma_stub_policy.xml
+
+# Logs and generated output
+*.log
+audit_output/
+temp/
+
+# Editor / OS
+.vscode/
+Thumbs.db
+logs/
+pytest.log
+tools/fakema/build/logs/

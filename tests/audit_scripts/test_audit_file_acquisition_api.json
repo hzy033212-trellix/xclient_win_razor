@@ -1,0 +1,20 @@
+{
+    "commands": [
+        {
+            "name": "file-acquisition-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Path",
+                    "value": "{RAZOR_PUBLIC}\\razor_smoke_test_directory"
+                },
+                {
+                    "name": "Filename",
+                    "value": "test1"
+                }
+            ]
+        }
+    ]
+}

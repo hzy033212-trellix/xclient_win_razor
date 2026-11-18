@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Product SoftwareID="XCLIENT_1000">
+    <EPOPolicySettings type=".EPO_ENFORCE" category=".EPO_ENFORCE" feature="XCLIENT_META" name="__EPO_ENFORCE_YES__" method="0" param="0">
+        <Section name="dummy">
+            <Setting name="0"/>
+        </Section>
+    </EPOPolicySettings>
+	<EPOPolicySettings type="Remediation" category="Remediation" feature="XCLIENT_META" name="Trellix Default" method="0" param="0">
+		<Section name="Remediation">
+			<Setting name="Allowed_IP_Addresses"></Setting>
+			<Setting name="UEDR/NetworkFlow/allow_paths_macos"></Setting>
+			<Setting name="UEDR/NetworkFlow/allow_paths_windows"></Setting>
+			<Setting name="UEDR/NetworkFlow/display_quarantine">true</Setting>
+			<Setting name="UEDR/NetworkFlow/quarantine_message">WARNING: Endpoint Contained. Your device has been disconnected from the network and can only connect to the Trellix management console.</Setting>
+			<Setting name="UEDR/NetworkFlow/unquarantine_message">WARNING: Endpoint Removed from containment. Your device has been reconnected to the network.</Setting>
+			<Setting name="UEDR/NetworkFlow/unquarantine_password"></Setting>
+			<Setting name="UEDR/NetworkFlow/unquarantine_password_enabled">false</Setting>
+			<Setting name="UEDR/NetworkFlow/unquarantine_salted_password"></Setting>
+		</Section>
+	</EPOPolicySettings>
+	<EPOPolicySettings type="Investigation" category="Investigation" feature="XCLIENT_META" name="Trellix Default" method="0" param="0">
+		<Section name="Investigation">
+			<Setting name="UEDR/FileHashing/enabled">false</Setting>
+			<Setting name="UEDR/FileHashing/hash_delay">120</Setting>
+			<Setting name="UEDR/FileHashing/hash_strategy">low</Setting>
+			<Setting name="UEDR/FileHashing/ignored_exact_files_linux">/etc/cma.d/lpc.conf;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_exact_files_macos">/etc/cma.d/lpc.conf;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_exact_files_windows">C:\\PAGEFILE.SYS;C:\\hiberfil.sys;C:\\swapfile.sys;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_extensions_linux">.swp;.o;.temp;.obj;.pdb;.log;.db;.db-journal;.pset;.tmp;.ost;.lnk;.stamp;.java;.h;.cpp;.py;.manifest;.c;.xml;.cc;.test;.txt;.conf;.mk;.properties;.vcxproj;.svn-base;.js;.filters;.jar;.crt;.dat;.pst;.tlog;.stattmp;.sdf;.etl;.que;.msg;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_extensions_macos">.strings;.swp;.o;.temp;.obj;.pdb;.log;.db;.db-journal;.pset;.tmp;.ost;.lnk;.stamp;.java;.h;.cpp;.py;.manifest;.c;.xml;.cc;.test;.txt;.conf;.mk;.properties;.vcxproj;.svn-base;.js;.filters;.jar;.crt;.dat;.pst;.tlog;.stattmp;.sdf;.etl;.que;.msg;.png;.jpg;.jpeg;.hpp;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_extensions_windows">.swp;.o;.temp;.obj;.pdb;.log;.log1;.db;.db-journal;.dat-journal;.pset;.tmp;.ost;.lnk;.stamp;.java;.h;.cpp;.py;.manifest;.c;.xml;.cc;.test;.txt;.conf;.mk;.properties;.vcxproj;.svn-base;.js;.filters;.jar;.crt;.dat;.pst;.tlog;.stattmp;.sdf;.etl;.que;.msg;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_paths_linux">/var/log;/var/run;/proc;/sys;/dev;/tmp;*/.cache;*/.git;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_paths_macos">/var/log;/var/run;/proc;/sys;/dev;/tmp;*/.cache;*/.git;/private/var/vm;/System/Volumes/Data;/usr/local/McAfee;</Setting>
+			<Setting name="UEDR/FileHashing/ignored_paths_windows">FOLDERID_Windows\\..\\$Recycle.Bin;FOLDERID_Windows\\System32\\wbem\\Repository;*.git;*.svn;FOLDERID_UserProfiles\\*\\AppData\\Local\\Google\\Chrome\\User Data;FOLDERID_Windows\\Prefetch;FOLDERID_UserProfiles\\*\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.IE5;FOLDERID_ProgramFilesX64\\BigFix Enterprise\\BES Client\\__BESData;FOLDERID_ProgramFilesX86\\BigFix Enterprise\\BES Client\\__BESData;FOLDERID_System\\LogFiles\\Scm;FOLDERID_ProgramData\\McAfee\\Common Framework;FOLDERID_UserProfiles\\*\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\Content.MSO;FOLDERID_UserProfiles\\*\\AppData\\Local\\Microsoft\\Windows\\WER\\ReportQueue;FOLDERID_ProgramData\\McAfee\\ENDPOINT SECURITY\\LOGCFG;</Setting>
+			<Setting name="UEDR/FileHashing/max_db_size_mb">60</Setting>
+			<Setting name="UEDR/FileHashing/max_db_size_percentage">2</Setting>
+			<Setting name="UEDR/FileHashing/max_file_size_mb">100</Setting>
+			<Setting name="UEDR/FileHashing/max_retrieve">512</Setting>
+			<Setting name="UEDR/FileHashing/power_saved">true</Setting>
+			<Setting name="UEDR/General/max_merge_retrieve">512</Setting>
+			<Setting name="UEDR/NetworkFlow/enabled">true</Setting>
+			<Setting name="UEDR/NetworkFlow/ignored_paths"></Setting>
+			<Setting name="UEDR/NetworkFlow/log_system">false</Setting>
+			<Setting name="UEDR/NetworkFlow/max_db_size_mb">120</Setting>
+			<Setting name="UEDR/NetworkFlow/max_db_size_percentage">2</Setting>
+			<Setting name="UEDR/NetworkFlow/max_retrieve">512</Setting>
+			<Setting name="UEDR/NetworkFlow/netsniffing">false</Setting>
+			<Setting name="UEDR/SystemInfo/enabled">true</Setting>
+			<Setting name="UEDR/SystemInfo/processhistory">true</Setting>
+		</Section>
+	</EPOPolicySettings>
+	<EPOPolicySettings type="Streaming" category="Streaming" feature="XCLIENT_META" name="Trellix Default" method="0" param="0">
+		<Section name="Streaming">
+			<Setting name="UEDR/TraceScanner/audit_rate_limit">9500</Setting>
+			<Setting name="UEDR/TraceScanner/bulk_time">30</Setting>
+			<Setting name="UEDR/TraceScanner/cairo_topic_compressed">/mcafee/bridge/traceEventCompressed</Setting>
+			<Setting name="UEDR/TraceScanner/cairo_topic_uncompressed">/mcafee/bridge/traceEvent</Setting>
+			<Setting name="UEDR/TraceScanner/cds_retention_period_days">7</Setting>
+			<Setting name="UEDR/TraceScanner/cds_size_limit_mb">210</Setting>
+			<Setting name="UEDR/TraceScanner/compression">true</Setting>
+			<Setting name="UEDR/TraceScanner/disabled_rules"></Setting>
+			<Setting name="UEDR/TraceScanner/disabled_rules_by_internal_tag">2147483644</Setting>
+			<Setting name="UEDR/TraceScanner/disabled_rules_linux"></Setting>
+			<Setting name="UEDR/TraceScanner/disabled_rules_mac"></Setting>
+			<Setting name="UEDR/TraceScanner/enabled">true</Setting>
+			<Setting name="UEDR/TraceScanner/ignored_exact_files_linux"></Setting>
+			<Setting name="UEDR/TraceScanner/ignored_exact_folders_linux"></Setting>
+			<Setting name="UEDR/TraceScanner/ignored_process"></Setting>
+			<Setting name="UEDR/TraceScanner/ignored_process_linux"></Setting>
+			<Setting name="UEDR/TraceScanner/ignored_process_mac"></Setting>
+			<Setting name="UEDR/TraceScanner/injectcore_enabled">true</Setting>
+			<Setting name="UEDR/TraceScanner/log_level">3</Setting>
+			<Setting name="UEDR/TraceScanner/max_db_size_mb">80</Setting>
+			<Setting name="UEDR/TraceScanner/max_hash_file_size_mb">500</Setting>
+			<Setting name="UEDR/TraceScanner/max_hash_file_size_mb_linux">500</Setting>
+			<Setting name="UEDR/TraceScanner/max_hash_file_size_mb_mac">500</Setting>
+			<Setting name="UEDR/TraceScanner/report_connectivity_status">false</Setting>
+			<Setting name="UEDR/TraceScanner/s3_bucket_aws_access_key_id"></Setting>
+			<Setting name="UEDR/TraceScanner/s3_bucket_aws_secret_access_key"></Setting>
+			<Setting name="UEDR/TraceScanner/s3_bucket_name"></Setting>
+			<Setting name="UEDR/TraceScanner/s3_default_region_name"></Setting>
+			<Setting name="UEDR/TraceScanner/s3_push_frequency_seconds">30</Setting>
+			<Setting name="UEDR/TraceScanner/send_traces_to_edr_cloud">true</Setting>
+			<Setting name="UEDR/TraceScanner/send_traces_to_s3_bucket">false</Setting>
+			<Setting name="UEDR/TraceScanner/topic_compressed">/mcafee/bridge/traceDataCompressed</Setting>
+			<Setting name="UEDR/TraceScanner/topic_uncompressed">/mcafee/bridge/traceData</Setting>
+			<Setting name="UEDR/TraceScanner/use_oplocks">false</Setting>
+			<Setting name="mxa/eventor/ioc_alerts_to_edr_epp_enabled">true</Setting>
+		</Section>
+	</EPOPolicySettings>
+	<EPOPolicySettings type="Detection" category="Detection" feature="XCLIENT_META" name="Trellix Default" method="0" param="0">
+		<Section name="Detection">
+			<Setting name="mxa/container/Eventor/enabled">true</Setting>
+			<Setting name="mxa/eventor/dns_evts_enabled">true</Setting>
+			<Setting name="mxa/eventor/excludedPaths"></Setting>
+			<Setting name="mxa/eventor/excludedProcessNames"></Setting>
+			<Setting name="mxa/eventor/network_evts_enabled">true</Setting>
+			<Setting name="mxa/eventor/registry_key_exclusion_filter"></Setting>
+			<Setting name="mxa/eventor/udp_send_events">true</Setting>
+			<Setting name="mxa/eventor/url_evts_enabled">true</Setting>
+			<Setting name="mxa/intel/rsrc/refresh">60</Setting>
+		</Section>
+	</EPOPolicySettings>
+	<EPOPolicySettings type="General" category="General" feature="XCLIENT_META" name="Trellix Default" method="0" param="0">
+		<Section name="General">
+            <Setting name="HXServerName" value="JithuHX"/>
+            <Setting name="UEDR/ContextInfo/enabled">true</Setting>
+            <Setting name="UEDR/General/unattended_update_enabled">true</Setting>
+            <Setting name="UEDR/General/unattended_update_timeout">240</Setting>
+            <Setting name="UEDR/MarLogger/buffer_size">20</Setting>
+            <Setting name="UEDR/MarLogger/log_level">3</Setting>
+            <Setting name="UEDR/MarLogger/log_path"/>
+            <Setting name="UEDR/MarLogger/max_file_size">15</Setting>
+            <Setting name="UEDR/MarLogger/storage_format">file</Setting>
+            <Setting name="UEDR/SystemRuntime/enabled">true</Setting>
+            <Setting name="UEDR/WinRegistry/enabled">true</Setting>
+            <Setting name="job_enabled">false</Setting>
+            <Setting name="libuv_enabled">false</Setting>
+            <Setting name="max_count_enabled">true</Setting>
+            <Setting name="max_days_enabled">false</Setting>
+            <Setting name="mxa/container/UnifiedEdr/enabled">true</Setting>
+            <Setting name="mxa/eventor/db_in_memory">false</Setting>
+            <Setting name="mxa/eventor/db_journal_mode">WAL</Setting>
+            <Setting name="mxa/eventor/db_memory_mapped">false</Setting>
+            <Setting name="mxa/eventor/db_page_size">1024</Setting>
+            <Setting name="mxa/eventor/db_synchronous">NORMAL</Setting>
+            <Setting name="mxa/eventor/max_db_size">120</Setting>
+            <Setting name="mxa/eventor/storage_mode">highintegrity</Setting>
+            <Setting name="mxa/health/report">false</Setting>
+            <Setting name="mxa/health/report_interval">600</Setting>
+			<Setting name="mxa/intel/rsrc/size_limit">33554432</Setting>
+            <Setting name="mxa/intel/url">/content/v1/intel/ioc/win-current_xagent_win</Setting>
+			<Setting name="mxa/intel/url_linux">/content/v1/intel/ioc/linux-xagent_linux"</Setting>
+			<Setting name="mxa/intel/url_mac">/content/v1/intel/ioc/osx-xagent_mac"</Setting>
+            <Setting name="mxa/ioc_metadata/url">/content/v1/intel/plugins/forensics-bridge</Setting>
+            <Setting name="mxa/log/enabled">true</Setting>
+            <Setting name="mxa/log/level">INFO</Setting>
+            <Setting name="mxa/log/mask"/>
+            <Setting name="mxa/log/max_count">100000</Setting>
+            <Setting name="mxa/log/max_days">0</Setting>
+            <Setting name="mxa/log/per_module">false</Setting>
+            <Setting name="mxa/process/cpu_limit">100</Setting>
+            <Setting name="mxa/process/priority">idle</Setting>
+            <Setting name="mxa/process/protection_enabled">false</Setting>
+            <Setting name="mxa/process/uninstall_password"/>
+            <Setting name="mxa/process/uninstall_password_enabled">false</Setting>
+			<Setting name="mxa/proxy">true</Setting>
+			<Setting name="mxa/proxy/exclude_hosts" value=""/>
+			<Setting name="mxa/proxy/exclude_local_host" value="false"/>
+			<Setting name="mxa/proxy/failed_retry_delay" value="1200"/>
+			<Setting name="mxa/proxy/host" value=""/>
+			<Setting name="mxa/proxy/password" value=""/>
+			<Setting name="mxa/proxy/port" value="80"/>
+			<Setting name="mxa/proxy/type" value="system"/>
+			<Setting name="mxa/proxy/username" value=""/>
+            <Setting name="mxs/ca/pem" value=""/>
+			<Setting name="mxs/clusters" value="172.23.92.78"/>
+			<Setting name="mxs/fastpoll_agents" value="30"/>
+			<Setting name="mxs/hx_enabled" value="true"/>
+			<Setting name="mxs/pki/distro/crl" value=" MIIDDjCB9wIBATANBgkqhkiG9w0BAQsFADCBkzELMAkGA1UEBhMCVVMxETAPBgNV BAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xETAPBgNVBAoMCE1BTkRJQU5U MTEwLwYDVQQDDChNYW5kaWFudCBQcm9kdWN0cyBSb290IFNpZ25pbmcgQXV0aG9y aXR5MRowGAYDVQQLDBFNYW5kaWFudCBQcm9kdWN0cxcNMjMwOTA2MjE0ODQ3WhcN MjcwOTE3MjE0ODQ3WqAvMC0wHwYDVR0jBBgwFoAUQUWE6hEaaXGzMSohuUGop5l4 f3AwCgYDVR0UBAMCASAwDQYJKoZIhvcNAQELBQADggIBAAc164VYkpTYQiGS5u/i 632I8Kk+XUGh61j30AKaQQPY83qAcw7GsSRSZJZa0pHw3QziQJNERX9hsqnJvh7j aC/nGD2QookXV8T7RIB8jktF3yc3oh5GYHfhpRDWoAQ5nKF/n/hjB2yUKHURznht GDtcOuFL9+8nnqVDcaTeoVNaWGLZ4s4mabxwyGp2GCmFqRRuOuB7Qkyv3Zq3Es2Z qf9f/GKL13V8paECDV3o3a+ukkHkgnsSbhOF4Dzi1L9swTwUTy3hMCXzYRu91YH0 QPr7yIntafSGPjQGEd6RR14cb6+KpjAo7KuuEVgcXjaZly4YE0u0lg9GYWe/jGWK avChft2gVeZ9ROF1NJrBWFvKvJt5Qpn7WR1U2XZYlWYnmctUPnkX+WobQ6Oo2fl+ EYiNNQQ8bABcj8JXwozJ6rz24DHPO9EP5kXltpoXm8EaG8gwmO2RfJdQRIdyh/KB zgrJWRbjrFmpELQByWV97d6ISxFMkmDfvZSyIHrvDLoLnz0YsWQipG3nCjZbkXDM sxHFzS6h7xdfp1/6gQywiPa5QkXfRW76XHxvATk16BJWFDnlYouS8xSFwPcP4MG8 KA98tRLC8fLNOP6TsoqT/XpHznpemyw+86dTsJHwKH4co360mETYVLEMwalm1U3Z vKLIw0d2zeZxcG+FCtNY6xl8 "/>
+			<Setting name="mxs/poll_agents" value="600"/>
+			<Setting name="mxs/provo/cert" value=""/>
+			<Setting name="mxs/provo/key" value=""/>
+			<Setting name="mxs/provo/servers" value="172.23.92.78"/>
+			<Setting name="queue_enabled" value="false"/>
+			<Setting name="ssl_enabled" value="false"/>
+        </Section>
+	</EPOPolicySettings>
+	<EPOPolicySettings type="Protection" category="Protection" feature="XCLIENT_META" name="enable_av_Trellix Default" method="0" param="0">
+		<Section name="Protection">
+			<Setting name="mxa/MalwareProtection/GTI/enabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/actions/cleanEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/actions/delete_infected_archives">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/actions/notifyEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/actions/remove-traceEnabled">true</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/exceptions/adwareEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/exceptions/hueristicEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/exceptions/pupEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/Quarantine/exceptions/spywareEnabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/UpdateInterval">61</Setting>
+			<Setting name="mxa/MalwareProtection/clean32_uri">/content/v1/intel/mal/clean32</Setting>
+			<Setting name="mxa/MalwareProtection/clean64_uri">/content/v1/intel/mal/clean64</Setting>
+			<Setting name="mxa/MalwareProtection/cleandb/rsrc/size_limit">146800640</Setting>
+			<Setting name="mxa/MalwareProtection/cleandb32/rsrc/size_limit">146800640</Setting>
+			<Setting name="mxa/MalwareProtection/cleandb32/url">/content/v1/intel/mal/clean32</Setting>
+			<Setting name="mxa/MalwareProtection/cleandb64/rsrc/size_limit">146800640</Setting>
+			<Setting name="mxa/MalwareProtection/cleandb64/url">/content/v1/intel/mal/clean64</Setting>
+			<Setting name="mxa/MalwareProtection/dti_config/rsrc/size_limit">52428800</Setting>
+			<Setting name="mxa/MalwareProtection/dti_config/uri">/content/v1/intel/mal/dti_config</Setting>
+			<Setting name="mxa/MalwareProtection/dti_config/url">/content/v1/intel/mal/dti_config</Setting>
+			<Setting name="mxa/MalwareProtection/dti_exclusions/rsrc/size_limit">52428800</Setting>
+			<Setting name="mxa/MalwareProtection/dti_exclusions/url">/content/v1/intel/mal/exclusions</Setting>
+			<Setting name="mxa/MalwareProtection/dti_exclusions_uri">/content/v1/intel/mal/exclusions</Setting>
+			<Setting name="mxa/MalwareProtection/enable_content_rollback">true</Setting>
+			<Setting name="mxa/MalwareProtection/enable_white_list">true</Setting>
+			<Setting name="mxa/MalwareProtection/engine_configuration/av/cloud_lookup">false</Setting>
+			<Setting name="mxa/MalwareProtection/engine_configuration/bd/enable">false</Setting>
+			<Setting name="mxa/MalwareProtection/engine_configuration/bd/quarantine_enable">false</Setting>
+			<Setting name="mxa/MalwareProtection/engine_configuration/mg/enable">false</Setting>
+			<Setting name="mxa/MalwareProtection/engine_configuration/mg/quarantine_enable">false</Setting>
+			<Setting name="mxa/MalwareProtection/excludedFiles"></Setting>
+			<Setting name="mxa/MalwareProtection/excludedMD5s"></Setting>
+			<Setting name="mxa/MalwareProtection/excludedProcesses"></Setting>
+			<Setting name="mxa/MalwareProtection/hx_exclusions/rsrc/size_limit">52428800</Setting>
+			<Setting name="mxa/MalwareProtection/hx_exclusions/url">/content/v1/intel/mal/hx_exclusions</Setting>
+			<Setting name="mxa/MalwareProtection/hx_exclusions_uri">/content/v1/intel/mal/hx_exclusions</Setting>
+			<Setting name="mxa/MalwareProtection/mg_intel/rsrc/size_limit">52428800</Setting>
+			<Setting name="mxa/MalwareProtection/mg_intel/url">/content/v1/intel/mal/mg_content</Setting>
+			<Setting name="mxa/MalwareProtection/mg_intel_uri">/content/v1/intel/mal/mg_content</Setting>
+			<Setting name="mxa/MalwareProtection/network_oas/enabled">true</Setting>
+			<Setting name="mxa/MalwareProtection/network_oas/mode">read-write</Setting>
+			<Setting name="mxa/MalwareProtection/network_oas/mode_read">read</Setting>
+			<Setting name="mxa/MalwareProtection/network_oas/mode_write">write</Setting>
+			<Setting name="mxa/MalwareProtection/oas/archive_scan_enabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/oas/av/max_file_size">30</Setting>
+			<Setting name="mxa/MalwareProtection/oas/blocking_timeout">10</Setting>
+			<Setting name="mxa/MalwareProtection/oas/max_archive_depth">4</Setting>
+			<Setting name="mxa/MalwareProtection/oas/mg/max_file_size">12</Setting>
+			<Setting name="mxa/MalwareProtection/oas/scan_timeout">15</Setting>
+			<Setting name="mxa/MalwareProtection/ods/archive_scan_enabled">true</Setting>
+			<Setting name="mxa/MalwareProtection/ods/av/max_file_size">2048</Setting>
+			<Setting name="mxa/MalwareProtection/ods/max_archive_depth">4</Setting>
+			<Setting name="mxa/MalwareProtection/ods/mg/max_file_size">100</Setting>
+			<Setting name="mxa/MalwareProtection/ods/scan_timeout">180</Setting>
+			<Setting name="mxa/MalwareProtection/scan_configuration/ods/event_based_scans">[]</Setting>
+			<Setting name="mxa/MalwareProtection/scancontrol/cancel_allowed">false</Setting>
+			<Setting name="mxa/MalwareProtection/scancontrol/pause_enabled">false</Setting>
+			<Setting name="mxa/MalwareProtection/scancontrol/pause_max">10</Setting>
+			<Setting name="mxa/MalwareProtection/scancontrol/pause_period">3600</Setting>
+			<Setting name="mxa/MalwareProtection/updateEnable">true</Setting>
+			<Setting name="mxa/MalwareProtection/update_version_exclusions"></Setting>
+			<Setting name="mxa/MalwareProtection/user_exclusions_uri">/content/v1/intel/mal/hx_exclusions</Setting>
+			<Setting name="mxa/ProRemSvc/age_to_purge">90</Setting>
+			<Setting name="mxa/ProRemSvc/auto_purge_check_interval">90</Setting>
+			<Setting name="mxa/ProRemSvc/generate_xml">false</Setting>
+			<Setting name="mxa/ProRemSvc/max_quarantine_size">100</Setting>
+			<Setting name="mxa/ProRemSvc/quarantine_path"></Setting>
+			<Setting name="mxa/container/MalwareProtection/enabled">false</Setting>
+			<Setting name="mxa/container/ProRemSvc/enabled">false</Setting>
+		</Section>
+	</EPOPolicySettings>
+</Product>

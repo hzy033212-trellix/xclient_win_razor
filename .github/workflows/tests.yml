@@ -1,0 +1,158 @@
+name: XClient tests
+
+# Runs run_tests.ps1 on the self-hosted Windows runner set up with setup_runner.ps1 (label
+# new-win-razor). It installs XClient on that host, so it can't run on GitHub-hosted runners.
+# Each run: setup.ps1 (installs only what is missing), then run_tests.ps1, which tests the latest
+# passed XClient build (or the "version" input) and rebuilds the fake-MA XClient only if its commit
+# changed. If the uninstall at the end leaves drivers to delete at boot, the host reboots so the
+# next run starts clean.
+#
+# Repository secrets (Settings > Secrets and variables > Actions):
+#   ARTIFACTORY_USER, ARTIFACTORY_TOKEN  artifactory.trellix.com
+#   XCLIENT_GITHUB_TOKEN                 github.trellix.com token with read access to the XClient
+#                                        repo and the ma-sdk-fake repo (the runner service has
+#                                        no Git Credential Manager sign-in)
+#   MA_SDK_FAKE_REPO                     git URL of the ma-sdk-fake repo
+#   MA_SDK_FAKE_BRANCH                   (optional) its branch, default main
+# Repository variables (optional):
+#   XCLIENT_RELEASE                      release line for "latest" (default 50.4.0)
+#   PUSH_TESTS_ENABLED                   "false" turns off the runs on pushes and pull requests
+#                                        (default true; "Run workflow" still works)
+#   NIGHTLY_ENABLED                      "false" turns the nightly run off
+#   AUTO_REBOOT                          "false": don't reboot after the run (the next run then
+#                                        refuses until someone reboots the host)
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md']
+  pull_request:
+    branches: [main]
+    paths-ignore: ['**.md']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "XClient version, e.g. 50.4.0.174, or 'latest' (newest passed build)"
+        required: false
+        default: latest
+      with_ma:
+        description: "Test the Orbit msi with MA (run_tests.ps1 -WithMA) instead of the fake-MA msi"
+        type: boolean
+        required: false
+        default: false
+      tests:
+        description: "Tests to run, space separated (default: all)"
+        required: false
+        default: tests
+  schedule:
+    - cron: "0 8 * * *"
+
+concurrency:
+  # The tests change host state: one run at a time.
+  group: new-win-razor-host
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    # Pull requests from forks get no secrets and must not run code on this host.
+    # PUSH_TESTS_ENABLED / NIGHTLY_ENABLED = "false" turn the push / pull request and nightly runs off.
+    if: >-
+      ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) &&
+          (github.event_name != 'schedule' || vars.NIGHTLY_ENABLED != 'false') &&
+          ((github.event_name != 'push' && github.event_name != 'pull_request') || vars.PUSH_TESTS_ENABLED != 'false') }}
+    runs-on: [self-hosted, windows, new-win-razor]
+    # A cold fake-MA build (~2 h) plus the tests (~1 h).
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: powershell -NoProfile -ExecutionPolicy Bypass -Command ". '{0}'"
+    env:
+      ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
+      ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+      XCLIENT_GITHUB_TOKEN: ${{ secrets.XCLIENT_GITHUB_TOKEN }}
+      MA_SDK_FAKE_REPO: ${{ secrets.MA_SDK_FAKE_REPO }}
+      MA_SDK_FAKE_BRANCH: ${{ secrets.MA_SDK_FAKE_BRANCH }}
+      XCLIENT_RELEASE: ${{ vars.XCLIENT_RELEASE || '50.4.0' }}
+      # The runner service account doesn't own C:\nwr\fakema's checkouts (made by whoever ran
+      # setup.ps1 / run_tests.ps1 by hand); without this git refuses them as "dubious ownership".
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: safe.directory
+      GIT_CONFIG_VALUE_0: "*"
+      PYTHONUTF8: "1"
+      RUN_LABEL: ci-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      # clean: false keeps the git-ignored venv\ and install\ (HXSim source, downloads) between runs.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          clean: false
+
+      # Another runner on this host (another repo's) may be installing XClient / MA.
+      - name: Wait until no other job runs on this host
+        run: |
+          .\tools\ci\ci_host.ps1 -WaitIdle
+          exit $LASTEXITCODE
+
+      - name: Set up tools (setup.ps1)
+        run: |
+          .\setup.ps1
+          exit $LASTEXITCODE
+
+      - name: Run tests (run_tests.ps1)
+        env:
+          VERSION: ${{ github.event.inputs.version || 'latest' }}
+          WITH_MA: ${{ github.event.inputs.with_ma || 'false' }}
+          TESTS: ${{ github.event.inputs.tests || 'tests' }}
+        run: |
+          $splat = @{ Version = $env:VERSION; Label = $env:RUN_LABEL; Tests = @($env:TESTS -split '\s+' | Where-Object { $_ }) }
+          if ($env:WITH_MA -eq 'true') { $splat.WithMA = $true }
+          .\run_tests.ps1 @splat
+          exit $LASTEXITCODE
+
+      # Only when something failed: the run's logs, the fake-MA build log and the audit outputs of
+      # the failed tests (tools\ci\collect_failed.py). A passing run keeps nothing.
+      - name: Collect failure materials
+        if: ${{ failure() }}
+        id: logs
+        run: |
+          $dir = Get-ChildItem logs -Directory -Filter "*_$env:RUN_LABEL" -ErrorAction SilentlyContinue | Select-Object -First 1
+          $runDir = if ($dir) { $dir.FullName } else { 'logs\none' }
+          $out = Join-Path $env:RUNNER_TEMP "nwr-failed\$env:RUN_LABEL"
+          Remove-Item (Split-Path $out) -Recurse -Force -ErrorAction SilentlyContinue
+          if (Test-Path venv\Scripts\python.exe) {
+            .\venv\Scripts\python.exe tools\ci\collect_failed.py $runDir $out --build-logs tools\fakema\build\logs
+          } else {
+            New-Item -ItemType Directory -Force -Path $out | Out-Null
+            if ($dir) { Copy-Item "$runDir\*" $out -Exclude results }
+          }
+          "dir=$out" | Out-File -Append -Encoding utf8 $env:GITHUB_OUTPUT
+
+      - name: Upload failure materials
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-${{ env.RUN_LABEL }}
+          path: ${{ steps.logs.outputs.dir }}
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # Clear this run's output from the host, pass or fail (what failed is in the artifact).
+      # Kept for the next run: venv\, install\ (downloads, HXSim source) and NWR_ROOT (tools,
+      # fake-MA build).
+      - name: Clean up run output
+        if: always()
+        run: |
+          $ErrorActionPreference = 'Continue'
+          Get-ChildItem logs -Directory -Filter "*_$env:RUN_LABEL" -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force
+          foreach ($p in 'temp', 'tools\fakema\build\logs', 'pytest.log', '.pytest_cache', (Join-Path $env:RUNNER_TEMP 'nwr-failed')) {
+            if (Test-Path $p) { Remove-Item $p -Recurse -Force }
+          }
+          # Audit scripts the tests rewrite with the current time.
+          git checkout -- audit_script.txt tests/audit_scripts
+          Write-Host 'Run output cleared.'
+
+      - name: Reboot if the uninstall left drivers to delete
+        if: ${{ always() && vars.AUTO_REBOOT != 'false' }}
+        run: |
+          .\tools\ci\ci_host.ps1 -RebootIfPending -DelaySeconds 90
+          exit $LASTEXITCODE

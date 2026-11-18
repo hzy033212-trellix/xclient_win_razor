@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "name": "registry-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Path",
+                    "value": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Node.js\\Components"
+                }
+            ]
+        }
+    ]
+}

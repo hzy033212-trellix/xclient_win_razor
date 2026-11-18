@@ -1,0 +1,24 @@
+{
+    "commands": [
+        {
+            "name": "processes-memory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "pid",
+                    "value": "{pid}"
+                },
+                {
+                    "name": "strings",
+                    "value": true
+                },
+                {
+                    "name": "shortest matched string",
+                    "value": 15
+                }
+            ]
+        }
+    ]
+}

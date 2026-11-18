@@ -1,0 +1,104 @@
+{
+    "commands": [
+        {
+            "name": "files-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                },
+                {
+                    "name": "Path",
+                    "value": "{RAZOR_PUBLIC}\\razor_smoke_test_directory"
+                }
+            ]
+        },
+        {
+            "name": "ports",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "volumes",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "processes-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "urlhistory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "cookiehistory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "filedownloadhistory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        },
+        {
+            "name": "formhistory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Unknown param",
+                    "value": "unknown value"
+                }
+            ]
+        }
+    ]
+}

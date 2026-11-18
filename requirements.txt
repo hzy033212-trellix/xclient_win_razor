@@ -1,0 +1,12 @@
+--index-url=https://artifactory.eng.fireeye.com/api/pypi/pypi-endpoint/simple 
+--trusted-host artifactory.eng.fireeye.com
+
+pytest==8.4.2
+psutil==5.9.8
+python-dateutil==2.8.1
+pytz==2019.3
+addict==2.2.1
+pywin32==300
+urllib3<2
+requests
+pefile==2018.5.24

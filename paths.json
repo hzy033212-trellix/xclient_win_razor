@@ -1,0 +1,13 @@
+{
+    "workspace_root": ".",
+    "install_dir": "install",
+    "audit_output_dir": "temp",
+    "audit_script_txt": "audit_script.txt",
+    "audit_scripts_dir": "tests\\audit_scripts",
+    "razor_public": "%USERPROFILE%\\razor",
+    "tmp_folder": "%USERPROFILE%\\temp",
+    "xclient_exe": "%ProgramFiles%\\Trellix\\XClient\\xclient.exe",
+    "mcafee_agent_exe": "%ProgramFiles%\\McAfee\\Agent\\cmdagent.exe",
+    "node_exe": "C:\\nwr\\tools\\node-v24\\node.exe",
+    "bash_exe": "C:\\nwr\\tools\\git\\bin\\bash.exe"
+}

@@ -1,0 +1,52 @@
+{
+    "commands": [
+        {
+            "name": "processes-memory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "pid",
+                    "value": "{pid}"
+                },
+                {
+                    "name": "handles",
+                    "value": true
+                },
+                {
+                    "name": "sections",
+                    "value": true
+                },
+                {
+                    "name": "enumerate imports",
+                    "value": true
+                },
+                {
+                    "name": "enumerate exports",
+                    "value": true
+                },
+                {
+                    "name": "MemD5",
+                    "value": true
+                },
+                {
+                    "name": "MD5",
+                    "value": true
+                },
+                {
+                    "name": "SHA1",
+                    "value": true
+                },
+                {
+                    "name": "SHA256",
+                    "value": true
+                },
+                {
+                    "name": "Verify Digital Signatures",
+                    "value": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epo:EPOPolicySchema xmlns:epo="mcafee-epo-policy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EPOPolicyVerInfo vermjr="5" vermin="10" verrel="0" verbld="0"/>
+<EPOPolicySettings name="Eventor Tuning::Settings (7D272B84-90F9-4FFB-8C8A-DD99F4F48491)" featureid="XCLIENT_META" categoryid="General" typeid="General" param_int="0" param_str="">
+<Section name="General">
+<Setting name="mxa/log/enabled" value="true"/>
+<Setting name="mxa/log/level" value="DEBUG"/>
+<Setting name="mxa/log/max_count" value="1000000"/>
+<Setting name="mxa/process/protection_enabled" value="false"/>
+<Setting name="mxa/fips/enabled" value="false"/>
+<Setting name="alerts/msg_bus_alerts" value="true"/>
+<Setting name="mxs/hx_enabled" value="true"/>
+<Setting name="mxs/clusters" value="127.0.0.1:8443"/>
+<Setting name="mxs/poll_agents" value="5"/>
+<Setting name="mxs/fastpoll_agents" value="5"/>
+<Setting name="mxs/fpoll_https" value="true"/>
+<Setting name="mxs/ca/pem" value=""/>
+<Setting name="mxs/provo/cert" value=""/>
+<Setting name="mxs/provo/key" value=""/>
+<Setting name="mxs/provo/keysize" value="2048"/>
+<Setting name="mxs/provo/servers" value="127.0.0.1:8443"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicyObject name="Eventor Tuning" featureid="XCLIENT_META" categoryid="General" serverid="DEV" editflag="0" typeid="General">
+<description></description><PolicySettings>Eventor Tuning::Settings (7D272B84-90F9-4FFB-8C8A-DD99F4F48491)</PolicySettings>
+</EPOPolicyObject>
+</epo:EPOPolicySchema>

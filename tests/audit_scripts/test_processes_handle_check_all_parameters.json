@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "name": "w32processes-handle",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "handles",
+                    "value": true
+                }
+            ]
+        }
+    ]
+}

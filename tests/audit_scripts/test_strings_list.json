@@ -1,0 +1,64 @@
+{
+    "commands": [
+        {
+            "name": "files-api",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "Path",
+                    "value": "{RAZOR_PUBLIC}\\files-api-files"
+                },
+                {
+                    "name": "Prevent Hibernation",
+                    "value": true
+                },
+                {
+                    "name": "Depth",
+                    "value": 8
+                },
+                {
+                    "name": "Minimum Sizes",
+                    "value": 20
+                },
+                {
+                    "name": "Maximum Sizes",
+                    "value": 20000000
+                },
+                {
+                    "name": "MD5",
+                    "value": false
+                },
+                {
+                    "name": "SHA1",
+                    "value": false
+                },
+                {
+                    "name": "SHA256",
+                    "value": false
+                },
+                {
+                    "name": "Verify Digital Signatures",
+                    "value": false
+                },
+                {
+                    "name": "Strings",
+                    "value": true
+                },
+                {
+                    "name": "AND Operator",
+                    "value": false
+                },
+                {
+                    "name": "Include Files",
+                    "value": true
+                },
+                {
+                    "name": "Include Directories",
+                    "value": true
+                }
+            ]
+        }
+    ]
+}

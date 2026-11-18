@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "name": "processes-memory",
+            "audit-format": "json",
+            "issues-format": "json",
+            "version": "1.0.0",
+            "parameters": [
+                {
+                    "name": "process name",
+                    "value": "CreateH.exe"
+                }
+            ]
+        }
+    ]
+}
